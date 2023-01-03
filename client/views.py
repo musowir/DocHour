@@ -177,7 +177,6 @@ def delete_file(request, upload):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     upload = Uploads.objects.get(id=upload)
     filepath = BASE_DIR + "".join([c if c != '/' else '\\' for c in upload.link.url[6:]])
-    print(filepath)
     if os.path.exists(filepath):
         os.remove(filepath)
         upload.delete()

@@ -51,7 +51,6 @@ def doc_home_send(request):
         message = request.POST.get('message')
         msg = Message(sender = request.user, reciever= client.user, message=message)
         msg.save()
-        print(msg)
         return HttpResponseRedirect(reverse('doctor:doc_home_chat', args=(client.id,)))
 
 def delete_msg(request):
@@ -75,7 +74,6 @@ def doc_home_slot(request, date):
     slot = Schedule.objects.filter(doc=doc, date=date)
     today = Schedule.objects.filter(doc=doc, date=dt.today())
     t = str(dt.today())
-    print(t)
     return render(request,'doctor/doc-home.html', context={'t':t, 'doc':doc, 'dates':dates, 'slots':slot, 'date':date, 'today':today})
 
 def register(request):
@@ -111,7 +109,6 @@ def user_login(request):
         if user:
             if user.is_active and user.is_staff:
                 login(request,user)
-                print('working')
                 return HttpResponseRedirect(reverse('doctor:doc_home'))
             else:
                 messages.warning(request, "You are not a doctor")
