@@ -165,7 +165,7 @@
                     <div class="gap-2" id="adder" style="display:none">
                         <form action="{% url 'doctor:add_slot' %}" method="post">
                           {% csrf_token %}
-                          <input type="date" name="date" id="date" class="form-control">
+                          <input type="date" name="date" id="date" class="form-control" min="{{t}}">
                           <input type="time" name="start" id="time" class="form-control">
                           <input type="number" name="no_hours" id="" class="form-control" placeholder="Number of hours available"> <br>
                           <input type="submit" value="ADD" class="form-control bg-primary text-light rounded-pill" onclick="addShow()">

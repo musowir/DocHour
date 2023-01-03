@@ -74,7 +74,9 @@ def doc_home_slot(request, date):
     dates = sorted(set([sc.date for sc in schedule]))
     slot = Schedule.objects.filter(doc=doc, date=date)
     today = Schedule.objects.filter(doc=doc, date=dt.today())
-    return render(request,'doctor/doc-home.html', context={'doc':doc, 'dates':dates, 'slots':slot, 'date':date, 'today':today})
+    t = str(dt.today())
+    print(t)
+    return render(request,'doctor/doc-home.html', context={'t':t, 'doc':doc, 'dates':dates, 'slots':slot, 'date':date, 'today':today})
 
 def register(request):
     if request.method == 'POST':
