@@ -24,6 +24,9 @@ def signup_doc(request):
 def doc_home(request):
     doc = Doctor.objects.get(user=request.user)
     schedule = Schedule.objects.filter(doc=doc)
+    for sc in schedule:
+        if sc.date < dt.today() :
+            sc.delete()
     dates = sorted(set([sc.date for sc in schedule]))
     today = Schedule.objects.filter(doc=doc, date=dt.today())
     return render(request,'doctor/doc-home.html', context={'doc':doc, 'dates':dates, 'today':today})

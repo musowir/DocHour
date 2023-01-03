@@ -58,7 +58,7 @@
                       {% for s in dates %}
                       <li><a class="dropdown-item" href="{% url 'doctor:doc_home_slot' s %}">{{ s }}</a></li>
                       {% empty %}
-                       No Schedules added.
+                       No active schedules.
                       {% endfor %}
                     </ul>
                   </div>
