@@ -27,6 +27,7 @@ def doc_home(request):
     for sc in schedule:
         if sc.date < dt.today() :
             sc.delete()
+    schedule = Schedule.objects.filter(doc=doc)
     dates = sorted(set([sc.date for sc in schedule]))
     today = Schedule.objects.filter(doc=doc, date=dt.today())
     return render(request,'doctor/doc-home.html', context={'doc':doc, 'dates':dates, 'today':today})
@@ -65,6 +66,10 @@ def delete_msg(request):
 
 def doc_home_slot(request, date):
     doc = Doctor.objects.get(user=request.user)
+    schedule = Schedule.objects.filter(doc=doc)
+    for sc in schedule:
+        if sc.date < dt.today() :
+            sc.delete()
     schedule = Schedule.objects.filter(doc=doc)
     dates = sorted(set([sc.date for sc in schedule]))
     slot = Schedule.objects.filter(doc=doc, date=date)
