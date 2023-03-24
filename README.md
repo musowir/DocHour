@@ -1,5 +1,5 @@
 # DocHour
-
+DocHour is a web application built using the Django framework that enables users to book appointments with doctors from anywhere in the world and engage in chat sessions with expert medical professionals. The application allows users to search for doctors by specialty, location, and availability, making it easy to find and book appointments that fit their needs. Additionally, users can communicate with doctors through a chat interface, enabling them to ask questions, receive advice, and discuss their concerns in real-time. The DocHour project has the potential to make healthcare more accessible and convenient for users, as it eliminates the need for in-person appointments and allows users to receive medical guidance from the comfort of their own homes.
 
 ## Setup
 1. install python (https://www.python.org/ftp/python/3.11.1/python-3.11.1-amd64.exe)
